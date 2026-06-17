@@ -16,6 +16,7 @@ type Client interface {
 	Rules() rules.Client
 	Servers() servers.Client
 	Stats() stats.Client
+	Raw(string) (string, error)
 	Ping() error
 	Close() error
 }
@@ -52,6 +53,10 @@ func (c *dnsDistClient) Servers() servers.Client {
 
 func (c *dnsDistClient) Stats() stats.Client {
 	return c.stats
+}
+
+func (c *dnsDistClient) Raw(cmd string) (string, error) {
+	return c.transport.Execute(cmd)
 }
 
 func (c *dnsDistClient) Ping() error {
