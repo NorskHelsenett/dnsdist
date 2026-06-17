@@ -192,6 +192,7 @@ Supported query types:
     * AD
     * RA
     * TTL
+
 for more information about rule options, please refer to the official dnsdist controllsocket [docoumentation](https://www.dnsdist.org/reference/rules-management.html)
 
 ## Contributing
