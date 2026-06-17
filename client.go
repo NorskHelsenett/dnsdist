@@ -30,7 +30,10 @@ type dnsDistClient struct {
 
 func NewClient(transport transport.Transport) Client {
 	return &dnsDistClient{
+		pools:     pools.New(transport),
 		rules:     rules.New(transport),
+		servers:   servers.New(transport),
+		stats:     stats.New(transport),
 		transport: transport,
 	}
 }
